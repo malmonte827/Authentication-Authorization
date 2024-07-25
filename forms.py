@@ -10,3 +10,23 @@ class RegisterForm(FlaskForm):
     email = StringField('Email', validators=[InputRequired(),Email(), Length(max=50, message= "Email can't be longer than 50 characters")])
     first_name = StringField('First Name', validators=[InputRequired(), Length(max=30, message= "First name can't be longer than 30 characters")])
     last_name = StringField('Last Name', validators=[InputRequired(), Length(max=30, message= "Last name can't be longer than 30 characters")])
+
+
+class LoginForm(FlaskForm):
+    """ Login existing User """
+    username = StringField('Username', validators=[InputRequired()])
+    password = PasswordField('Password', validators=[InputRequired()])
+
+
+
+class FeedbackForm(FlaskForm):
+    """Add feedback form."""
+
+    title = StringField("Title", validators=[InputRequired(), Length(max=100, message='Reached max message size')],
+    )
+    content = StringField("Content", validators=[InputRequired()],
+    )
+
+
+class DeleteForm(FlaskForm):
+    """ empty """
